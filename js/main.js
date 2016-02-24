@@ -1,33 +1,14 @@
 $(document).ready(function() {
-	var trace1 = {
-	  x: [0, 1, 2, 3, 4, 5, 6, 7],
-	  y: [10, 11, 21, 31, 4, 50, 67, 7],
-	  name: 'SF Zoo',
-	  type: 'bar'
-	};
-
-	var trace2 = {
-	  x: [0, 1, 2, 3, 4, 5, 6, 7],
-	  y: [12, 18, 29, 12, 18, 29],
-	  name: 'LA Zoo',
-	  type: 'bar'
-	};
-
-	var data = [trace1, trace2];
-
-	var layout = {barmode: 'stack',
-	              xaxis: {autorange: 'reversed'}};
-	for (var i = 1; i < 18; i++)
-		Plotly.newPlot('sig' + i, data, layout);
 
 	function to1DArray(text) 
 	{
-		var array = text.split("\n");
-		alert(array.valueOf());
+		var array = text.trim().split("\n");
+		return array;
 	}
 
 	function readTextFile(file)
 	{
+		var allText;
 	    var rawFile = new XMLHttpRequest();
 	    rawFile.open("GET", file, false);
 	    rawFile.onreadystatechange = function ()
@@ -36,13 +17,52 @@ $(document).ready(function() {
 	        {
 	            if(rawFile.status === 200 || rawFile.status == 0)
 	            {
-	                var allText = rawFile.responseText;
-	                alert(allText);
+	                allText = rawFile.responseText;
 	            }
 	        }
     	}
     	rawFile.send(null);
+    	return allText;
 	}
 
-	readTextFile("file:///Users/moelwinhein/webpages/ecg-analyzer/asset/typewords.txt");
+	var typewords = to1DArray(readTextFile("asset/typewords.txt"));
+	var words = to1DArray(readTextFile("asset/words.txt"));
+	var sigtypes = to1DArray(readTextFile("asset/sigtypes.txt"));
+	var alltypes = to1DArray(readTextFile("asset/alltypes.txt"));
+	var diststr = to1DArray(readTextFile("asset/dist.txt"));
+	var dist = new Array([]);
+	for (var i = 0; i < diststr.length; i++) {
+		dist [i] = diststr[i].trim().split(" ").map(function(item) {
+			return parseFloat(item);
+		});
+	}
+
+	var arr = [];
+	for (var i = 0; i < words.length; i++) {
+		arr[i] = alltypes[i] + ": " + words[i];
+	}
+
+	for (var i = 0; i < dist.length; i++) {
+		var trace1 = {
+		  x: Array.apply(null, {length: dist[i].length}).map(Number.call, Number),
+		  y: dist[i],
+		  type: 'bar',
+		  text: arr,
+		  marker: {
+		    color: 'rgb(158,202,225)',
+		    opacity: 0.6,
+		    line: {
+		      color: 'rbg(8,48,107)',
+		      width: 1.5
+		    }
+		  }
+		};
+		var data = [trace1];
+
+		var layout = {
+		  title: sigtypes[i] + ": " + typewords[i]
+		};
+		var j = i + 1;
+		Plotly.newPlot('sig' + j, data, layout);
+	}
 });
