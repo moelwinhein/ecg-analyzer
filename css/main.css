@@ -102,14 +102,60 @@ textarea {
     margin-bottom: 20px;
     width: 80%;
     height: 400px;
-    border: 3px solid #73AD21;
+    border: 3px solid #990000;
     padding: 10px;
+    overflow: auto;
+}
+
+#content {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.pie {
+    height: 500px;
+    align: center;
+}
+
+footer {
+    font-size: x-small;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 h1 {
     text-align: center;
     color: #990000;
     font-family: 'Roboto Slab', serif;
+}
+
+h3 {
+    color: #990000;
+    font-family: 'Roboto Slab', serif;
+    margin: 10px 0px 10px 0px;
+}
+
+p, li {
+    font-family: 'Roboto Slab', serif;
+    margin: 10px 20px 10px 20px;
+    line-height: 30px;
+}
+
+#loading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("../img/ajax-loader.gif") no-repeat center center;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (min-width: 480px) {
+    .center {
+        width: 480;
+    }
 }
 
 

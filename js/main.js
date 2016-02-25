@@ -38,18 +38,47 @@ $(document).ready(function() {
 	}
 
 	var arr = [];
+	var counter = {};
+	for (var i = 0; i < sigtypes.length; i++) {
+		counter[sigtypes[i]] = 0;
+	}
 	for (var i = 0; i < words.length; i++) {
 		arr[i] = alltypes[i] + ": " + words[i];
+		counter[alltypes[i]] += 1;
+	}
+	var v = [];
+	for (var i = 0; i < sigtypes.length; i++) {
+		v[i] = counter[sigtypes[i]];
 	}
 
+	var data = [{
+	  values: v,
+	  labels: sigtypes,
+	  type: 'pie'
+	}];
+
+	var layout = {
+		title: "QTDB/SEL213 Signal Types Distribution Chart",
+		height: 700
+	};
+
+	Plotly.newPlot('sig0', data, layout);
+
 	for (var i = 0; i < dist.length; i++) {
+		var c = [];
+		for (var j = 0; j < alltypes.length; j++) {
+			if (sigtypes[i] === alltypes[j]) 
+				c[j] = 'rgba(222,45,38,0.8)';
+			else
+				c[j] = 'rgb(158,202,225)';
+		}
 		var trace1 = {
 		  x: Array.apply(null, {length: dist[i].length}).map(Number.call, Number),
 		  y: dist[i],
 		  type: 'bar',
 		  text: arr,
 		  marker: {
-		    color: 'rgb(158,202,225)',
+		    color: c,
 		    opacity: 0.6,
 		    line: {
 		      color: 'rbg(8,48,107)',
@@ -65,4 +94,8 @@ $(document).ready(function() {
 		var j = i + 1;
 		Plotly.newPlot('sig' + j, data, layout);
 	}
+});
+
+$(window).ready(function() {
+	$('#loading').hide();
 });

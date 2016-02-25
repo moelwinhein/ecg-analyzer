@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -24,24 +25,48 @@
         <!-- Add your site or application content here -->
         <h1>ECG Analyzer</h1>
         <hr>
-
-        <div id="sig1" class="center"></div>
-				<div id="sig2" class="center"></div>
-				<div id="sig3" class="center"></div>
-				<div id="sig4" class="center"></div>
-				<div id="sig5" class="center"></div>
-				<div id="sig6" class="center"></div>
-				<div id="sig7" class="center"></div>
-				<div id="sig8" class="center"></div>
-				<div id="sig9" class="center"></div>
-				<div id="sig10" class="center"></div>
-				<div id="sig11" class="center"></div>
-				<div id="sig12" class="center"></div>
-				<div id="sig13" class="center"></div>
-				<div id="sig14" class="center"></div>
-				<div id="sig15" class="center"></div>
-				<div id="sig16" class="center"></div>
-				<div id="sig17" class="center"></div>
+        <div id="loading"></div>
+        <section id="content">
+        	<h3>MINDIST Analysis</h3>
+        	<p>
+        		In this analysis, MINDIST values are observed for different signal types (e.g. NA, NV, etc) of the same ECG signal.  
+        	</p>
+        	<h3>Analysis Parameters</h3>
+        	<p>
+        		Median Filter: LEFT = RIGHT = 16</br>SG Filter: LEFT = RIGHT = ORDER = 8</br>Encoding: ALPHABET_SIZE = 8, PAA_SIZE = 32
+        	</p>
+        	<h3>Analysis</h3>
+        	<p>
+        		<ul>
+        			<li>Signal 0 from MLII lead of SEL213 (QTDB) is filtered with the above mentioned filtering and encoding parameters.</li>
+        			<li>For each of the RR-signals, its MINDIST with the other RR-signals in the ECG data signal is calculated and the results are plotted.</li>
+        			<li>There are 17 RR-signal types in this ECG data piece as shown in the chart below.</li>
+        			<li>Signals of the same type are in light-red color whereas other comparisons are in blue.</li>
+        		</ul>
+        	</p>
+        </section>
+        <div>
+	        <div id="sig0" class="center pie"></div>
+	        <div id="sig1" class="center"></div>
+					<div id="sig2" class="center"></div>
+					<div id="sig3" class="center"></div>
+					<div id="sig4" class="center"></div>
+					<div id="sig5" class="center"></div>
+					<div id="sig6" class="center"></div>
+					<div id="sig7" class="center"></div>
+					<div id="sig8" class="center"></div>
+					<div id="sig9" class="center"></div>
+					<div id="sig10" class="center"></div>
+					<div id="sig11" class="center"></div>
+					<div id="sig12" class="center"></div>
+					<div id="sig13" class="center"></div>
+					<div id="sig14" class="center"></div>
+					<div id="sig15" class="center"></div>
+					<div id="sig16" class="center"></div>
+					<div id="sig17" class="center"></div>
+				</div>
+				<hr>
+				<footer>&copy; 2016 by Moe Lwin Hein. All rights reserved.</footer>
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
