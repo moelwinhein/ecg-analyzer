@@ -152,6 +152,25 @@ p, li {
     left: 0;
 }
 
+header ul li {
+    display: inline;
+}
+
+a {
+    color: #990000;
+    text-decoration: none;
+    -webkit-transition: transform .2s ease-in-out;
+    -moz-transition: transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+}
+
+a:hover {
+    color: #3399ff;
+    -webkit-transition: scale(1.5);
+    -moz-transition: scale(1.5);
+    transform: scale(1.5);
+}
+
 @media screen and (min-width: 480px) {
     .center {
         width: 480;
