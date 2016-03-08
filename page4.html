@@ -25,61 +25,39 @@
         <!-- Add your site or application content here -->
         <header>
             <ul>
-                <li><a href="#">Page 1</a></li>
+                <li><a href="index.html">Page 1</a></li>
                 <li><a href="ssst.html">Page 2</a></li>
                 <li><a href="graph.html">Page 3</a></li>
-                <li><a href="page4.html">Page 4</a></li>
+                <li><a href="#">Page 4</a></li>
             </ul>
         </header>
         <h1>ECG Analyzer</h1>
         <hr>
         <div id="loading"></div>
-        <section id="content">
-        	<h3>MINDIST Analysis</h3>
-        	<p>
-        		In this analysis, MINDIST values are observed for different signal types (e.g. NA, NV, etc) of the same ECG signal.  
-        	</p>
-        	<h3>Analysis Parameters</h3>
-        	<p>
-        		Median Filter: LEFT = RIGHT = 16</br>SG Filter: LEFT = RIGHT = ORDER = 8</br>Encoding: ALPHABET_SIZE = 8, PAA_SIZE = 32
-        	</p>
-        	<h3>Analysis</h3>
-        	<p>
-        		<ul>
-        			<li>Signal 0 from MLII lead of SEL213 (QTDB) is filtered with the above mentioned filtering and encoding parameters.</li>
-        			<li>For each of the RR-signals, its MINDIST with the other RR-signals in the ECG data signal is calculated and the results are plotted.</li>
-        			<li>There are 17 RR-signal types in this ECG data piece as shown in the chart below.</li>
-        			<li>Signals of the same type are in light-red color whereas other comparisons are in blue.</li>
-        		</ul>
-        	</p>
-        </section>
         <div>
-	        <div id="sig0" class="center pie"></div>
+            <div style="text-align: center"><h3>Index 0</h3></div>
 	        <div id="sig1" class="center"></div>
-					<div id="sig2" class="center"></div>
-					<div id="sig3" class="center"></div>
-					<div id="sig4" class="center"></div>
-					<div id="sig5" class="center"></div>
-					<div id="sig6" class="center"></div>
-					<div id="sig7" class="center"></div>
-					<div id="sig8" class="center"></div>
-					<div id="sig9" class="center"></div>
-					<div id="sig10" class="center"></div>
-					<div id="sig11" class="center"></div>
-					<div id="sig12" class="center"></div>
-					<div id="sig13" class="center"></div>
-					<div id="sig14" class="center"></div>
-					<div id="sig15" class="center"></div>
-					<div id="sig16" class="center"></div>
-					<div id="sig17" class="center"></div>
-				</div>
-				<hr>
-				<footer>&copy; 2016 by Moe Lwin Hein. All rights reserved.</footer>
+            <div style="text-align: center"><h3>Index 1</h3></div>
+			<div id="sig2" class="center"></div>
+            <div style="text-align: center"><h3>Index 2</h3></div>
+			<div id="sig3" class="center"></div>
+            <div style="text-align: center"><h3>Index 3</h3></div>
+			<div id="sig4" class="center"></div>
+            <div style="text-align: center"><h2>Graphing Format: "index# sig0# sig1#"</h2></div>
+            <div style="text-align: center"><h3>"0 0 1" means "compare signal 0 and 1 from index 0 bar chart".</h3></div>
+            <div style="text-align:center;">
+                <input type="text" id="ecgdata">
+                <button id="submit">Submit</button>
+            </div>
+            <div id="sig5" class="center"></div>
+		</div>
+		<hr>
+		<footer>&copy; 2016 by Moe Lwin Hein. All rights reserved.</footer>
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/page4.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
